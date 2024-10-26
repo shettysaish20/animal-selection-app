@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Selection and File Upload</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <form id="uploadForm" action="{{ url_for('index') }}" method="post" enctype="multipart/form-data">
+        <div class="box">
+            <h2>Select an Animal</h2>
+            <label><input type="checkbox" name="animal" value="cat"> Cat</label>
+            <label><input type="checkbox" name="animal" value="dog"> Dog</label>
+            <label><input type="checkbox" name="animal" value="elephant"> Elephant</label>
+            <div id="animalImages"></div>
+        </div>
+        
+        <div class="box">
+            <h2>Upload a File</h2>
+            <input type="file" name="file" id="file">
+        </div>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="fileInfoBox" class="box" style="display: none;">
+        <h2>File Information</h2>
+        <div id="filePreview"></div>
+        <div id="fileInfo"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
